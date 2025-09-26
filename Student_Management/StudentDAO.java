@@ -35,7 +35,7 @@ public class StudentDAO {
 	}
 	public void updateStudent(int id,Student s1) throws SQLException{
 		try (Connection con = DBconnect.getConnection()){
-			String sql = "UPDATE Student SET name?,course=?,marks=?WHERE id=?";
+			String sql = "UPDATE Students SET name?,course=?,marks=?WHERE id=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, s1.name);
 			ps.setString(2, s1.course);
@@ -51,7 +51,7 @@ public class StudentDAO {
 	}
 	public void deleteStudent(int id) throws SQLException {
 		try(Connection con = DBconnect.getConnection()){
-			String sql = "DELETE FROM student WHERE id=?";
+			String sql = "DELETE FROM students WHERE id=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			int rows = ps.executeUpdate();
@@ -64,3 +64,4 @@ public class StudentDAO {
 	}
 
 	
+
